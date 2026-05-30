@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rohit Kumar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f4ef;
+      --ink: #1a1714;
+      --muted: #7a736a;
+      --accent: #c1440e;
+      --accent2: #1a5c8a;
+      --card: #ffffff;
+      --border: #e2ddd7;
+      --tag-bg: #eee9e2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 244, 239, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: start;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .hero-bio {
+      font-size: 1.05rem;
+      color: #3d3830;
+      max-width: 540px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-bio strong { color: var(--ink); font-weight: 500; }
+    .phd-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--accent2);
+      background: #e8f2f9;
+      padding: 0.45rem 0.9rem;
+      border-radius: 4px;
+      margin-bottom: 1.8rem;
+    }
+    .phd-note::before { content: '→'; font-weight: 700; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--card);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .hero-links a:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c1440e22, #1a5c8a22);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION TITLES ── */
+    .sec-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .sec-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .pub:last-child { border-bottom: none; }
+    .pub-venue {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+    .pub-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+      color: var(--ink);
+    }
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .pub-authors strong { color: var(--ink); font-weight: 500; }
+    .pub-desc {
+      font-size: 0.9rem;
+      color: #4a433c;
+      margin-bottom: 0.7rem;
+      line-height: 1.6;
+    }
+    .pub-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .pill {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 99px;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      background: var(--tag-bg);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .pill:hover { border-color: var(--accent); color: var(--accent); }
+    .pill.main { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .pill.main:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* ── EXPERIENCE ── */
+    .exp-grid { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.5rem;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+      line-height: 1.4;
+    }
+    .exp-role {
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-bottom: 0.15rem;
+    }
+    .exp-org {
+      font-size: 0.85rem;
+      color: var(--accent2);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .exp-desc {
+      font-size: 0.88rem;
+      color: #4a433c;
+      line-height: 1.6;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.2rem;
+    }
+    .proj-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.4rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .proj-card:hover {
+      border-color: #c8b99a;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .proj-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .proj-desc {
+      font-size: 0.86rem;
+      color: #5a534c;
+      line-height: 1.6;
+      margin-bottom: 0.9rem;
+    }
+    .proj-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    /* ── SKILLS ── */
+    .skills-block { display: flex; flex-direction: column; gap: 0.9rem; }
+    .skill-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .skill-cat {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      width: 90px;
+      flex-shrink: 0;
+    }
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--tag-bg);
+      border-radius: 4px;
+      color: #3d3830;
+      border: 1px solid var(--border);
+    }
+
+    /* ── ACHIEVEMENTS ── */
+    .ach-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .ach-list li {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.92rem;
+      align-items: flex-start;
+    }
+    .ach-list li::before {
+      content: '—';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.75rem; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-avatar { width: 80px; height: 80px; font-size: 1.8rem; order: -1; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.3rem; }
+      .exp-date { padding-top: 0; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skill-cat { width: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Rohit Kumar</span>
+  <ul class="nav-links">
+    <li><a href="#publications">Papers</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">IIT Goa &nbsp;·&nbsp; B.Tech</div>
+        <h1>Rohit Kumar</h1>
+        <p class="hero-bio">
+          I do research in <strong>NLP and AI</strong> — building systems that work for underrepresented languages, handle uncertainty well, and ship outside the notebook. Two publications, collaborations across five institutions.
+        </p>
+        <div class="phd-note">Applying for a PhD in CS — Fall 2027</div>
+        <div class="hero-links">
+          <a href="https://scholar.google.com/citations?user=nHNybNgAAAAJ&hl=en" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://github.com/roh8exe" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.54 2.87 8.39 6.84 9.75.5.09.68-.22.68-.49v-1.71c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.52 1.05 1.52 1.05.89 1.56 2.33 1.11 2.9.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.84a9.3 9.3 0 0 1 2.51.35c1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49A10.27 10.27 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/rohit-bansal-/" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zm2-5a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:rohit.kumar.23063@iitgoa.ac.in">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="hero-avatar">R</div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="sec-label">Publications</div>
+
+    <div class="pub">
+      <div class="pub-venue">EMNLP 2025 · System Demos</div>
+      <div class="pub-title">UNITYAI-GUARD: Multilingual Toxicity Detection for Indic Languages</div>
+      <div class="pub-authors"><strong>Rohit Kumar</strong>, et al. &nbsp;·&nbsp; co-first author</div>
+      <div class="pub-desc">
+        Multilingual platform for toxicity detection across 6 low-resource Indic languages. Curated the first large-scale Punjabi toxicity dataset (39k+ annotated instances). Fine-tuned mBERT to 80.29% accuracy on Punjabi.
+      </div>
+      <div class="pub-links">
+        <a class="pill main" href="#" target="_blank">Paper</a>
+        <a class="pill" href="#" target="_blank">Website</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-venue">Under Review · IEEE Transactions on AI</div>
+      <div class="pub-title">StrategyIR: Risk-Calibrated Tactical Ranking over Cricket Action Spaces</div>
+      <div class="pub-authors">et al., <strong>Rohit Kumar</strong>, et al.</div>
+      <div class="pub-desc">
+        Uncertainty-aware retrieval system for cricket analytics using conformal risk control. Player profiling over 3,947 players. 92% empirical coverage, outperforming all baselines.
+      </div>
+      <div class="pub-links">
+        <a class="pill" href="#" target="_blank">Preprint</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-venue">Preprint</div>
+      <div class="pub-title">FRAME-RAR: Frequency-Enhanced Motion History with Retrieval-Augmented Recognition for Real-Time Video Understanding</div>
+      <div class="pub-authors"><strong>Rohit Kumar</strong></div>
+      <div class="pub-desc">
+        Dual-stream video action recognition pipeline. 232 FPS, 78.75% top-1 accuracy on UCF-101.
+      </div>
+      <div class="pub-links">
+        <a class="pill" href="#" target="_blank">Preprint</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="sec-label">Experience</div>
+    <div class="exp-grid">
+
+      <div class="exp-item">
+        <div class="exp-date">Nov 2025<br>Jan 2026</div>
+        <div>
+          <div class="exp-role">Research Intern</div>
+          <div class="exp-org">IIT Patna &nbsp;·&nbsp; Supervisor: Dr. Sriparna Saha</div>
+          <div class="exp-desc">Contributed to FieldSight, a cricket dataset of 3,046 annotated ball-by-ball instances. Implemented conformal risk control for uncertainty-aware tactical ranking. Built the player profiling module across 100 player profiles.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jun 2025<br>Dec 2025</div>
+        <div>
+          <div class="exp-role">Applied ML Lead</div>
+          <div class="exp-org">noCnX Technologies</div>
+          <div class="exp-desc">Built MoldGPT, a multimodal RAG system for mechanical engineering SOPs combining text and diagram retrieval with Whisper STT for multilingual voice queries on factory floors. PostgreSQL and Redis for session management, automated document ingestion with department-based access control.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jun 2025<br>Nov 2025</div>
+        <div>
+          <div class="exp-role">Research Intern</div>
+          <div class="exp-org">University of Waterloo &nbsp;·&nbsp; Supervisor: Dr. Sirisha Rambhatla</div>
+          <div class="exp-desc">Multimodal AI for 3-month mRS prediction in acute ischemic stroke patients. Fusion of imaging biomarkers and clinical risk factors. Evaluated ensemble ML models for stroke volume and clot burden assessment.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Feb 2025<br>Apr 2025</div>
+        <div>
+          <div class="exp-role">Research Intern</div>
+          <div class="exp-org">IIT Gandhinagar &nbsp;·&nbsp; Supervisor: Dr. Mayank Singh</div>
+          <div class="exp-desc">Built the multilingual React + FastAPI platform and curated the first large-scale Punjabi toxicity dataset. This work became UNITYAI-GUARD, accepted at EMNLP 2025.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="sec-label">Projects</div>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-title">LearnWise</div>
+        <div class="proj-desc">Multi-agent RAG platform turning lecture videos and PDFs into structured notes, MCQ quizzes, and interactive Q&A. Whisper for transcription, FAISS retrieval, LLaMA-3 and Mistral with task-based model selection.</div>
+        <div class="proj-links">
+          <a class="pill main" href="https://github.com/roh8exe/LearnWise" target="_blank">GitHub</a>
+          <a class="pill" href="https://docs.google.com/document/u/1/d/1wPANDyRR1lOeG5iKZDyUX2cuD2XLmIot3WA_NVs6BgY/edit?usp=sharing" target="_blank">Docs</a>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-title">Real-Time Object Detection</div>
+        <div class="proj-desc">Flutter app with Google ML Kit and MobileNetV3, text-to-speech for detected objects. Built for accessibility, tested with real users. Supports 10K+ object categories.</div>
+        <div class="proj-links">
+          <a class="pill main" href="https://github.com/roh8exe/MobileNetv3" target="_blank">GitHub</a>
+          <a class="pill" href="https://drive.google.com/file/d/1wdoVM2Or9IfguEYMed33KSHTfCZVh6D9/view" target="_blank">Demo</a>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-title">CopBot & CopHelp</div>
+        <div class="proj-desc">NLP chatbots for police stations: incident classification and legal FAQ. Bilingual voice UI in Hindi and English. Runner-up at Goa Police Hackathon 2024, 2nd out of 32 teams.</div>
+        <div class="proj-links">
+          <a class="pill main" href="https://github.com/roh8exe/PoliceChatbots" target="_blank">GitHub</a>
+          <a class="pill" href="https://drive.google.com/file/d/1FVFlhgSktTKmXMJQSCl3RzrusXvZJZ8A/view" target="_blank">Docs</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-label">Skills</div>
+    <div class="skills-block">
+      <div class="skill-row">
+        <span class="skill-cat">Languages</span>
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">Dart</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">ML / AI</span>
+        <span class="tag">PyTorch</span><span class="tag">HuggingFace</span><span class="tag">Scikit-Learn</span><span class="tag">TensorFlow</span><span class="tag">vLLM</span><span class="tag">LoRA</span><span class="tag">PEFT</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Techniques</span>
+        <span class="tag">SFT</span><span class="tag">GRPO</span><span class="tag">Conformal Prediction</span><span class="tag">RAG</span><span class="tag">Multilingual NLP</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Infra</span>
+        <span class="tag">SLURM</span><span class="tag">HPC / Linux</span><span class="tag">Docker</span><span class="tag">Git</span><span class="tag">FAISS</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-cat">Web</span>
+        <span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">Flutter</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="sec-label">Achievements</div>
+    <ul class="ach-list">
+      <li>Runner-up, Goa Police Hackathon 2024 — 2nd out of 32 state-level teams</li>
+      <li>Indian Olympiad Qualifier in Mathematics (IOQM)</li>
+      <li>Kishore Vaigyanik Protsahan Yojana (KVPY) Scholar</li>
+      <li>Junior Scientist of the Year, National Science Camp — selected from 180 students nationwide</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  rohit.kumar.23063@iitgoa.ac.in &nbsp;·&nbsp; rohitbansal547@gmail.com &nbsp;·&nbsp; +91 8054971431
+</footer>
+
+</body>
+</html>
