@@ -221,6 +221,12 @@
     .exp-role { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.15rem; }
     .exp-org { font-size: 0.85rem; color: var(--accent2); margin-bottom: 0.5rem; font-weight: 500; }
     .exp-desc { font-size: 0.88rem; color: #4a433c; line-height: 1.6; }
+    .exp-org a { color: inherit; text-decoration: underline; text-decoration-color: #1a5c8a55; text-underline-offset: 2px; }
+    .exp-org a:hover { color: var(--accent); }
+    .exp-place { font-weight: 400; color: var(--muted); }
+    .sub-label { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 2rem 0 0.4rem; }
+    .sub-label:first-of-type { margin-top: 0; }
+    .pub-note { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; }
 
     /* PROJECTS */
     .projects-grid {
@@ -281,9 +287,9 @@
         <div class="hero-tag">IIT Goa &nbsp;·&nbsp; AI / NLP Researcher</div>
         <h1>Rohit Kumar</h1>
         <p class="hero-bio">
-          I do research in <strong>NLP and AI</strong> — building systems that work for underrepresented languages, handle uncertainty well, and ship outside the notebook. Two publications, collaborations across five institutions.
+          I'm an undergraduate at IIT Goa working on <strong>NLP</strong>. Most of my work is about languages and settings that current models handle badly: Indic and code-mixed text and speech, the cultural competence of LLMs, and whether models stay reliable across long conversations. I also work on media bias and on NLP for health and scientific evidence.
         </p>
-        <div class="phd-note">Applying for a PhD in CS — Fall 2027</div>
+        <div class="phd-note">Applying for a PhD in CS for Fall 2027</div>
         <div class="hero-links">
           <a href="https://scholar.google.com/citations?user=nHNybNgAAAAJ&hl=en" target="_blank">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -324,10 +330,10 @@
     <div class="sec-label">Publications</div>
 
     <div class="pub">
-      <div class="pub-venue">EMNLP 2025 · System Demos</div>
+      <div class="pub-venue">EMNLP 2025 &middot; System Demos</div>
       <div class="pub-title">UNITYAI-GUARD: Multilingual Toxicity Detection for Indic Languages</div>
-      <div class="pub-authors"><strong>Rohit Kumar</strong>, et al. &nbsp;·&nbsp; co-first author</div>
-      <div class="pub-desc">Multilingual platform for toxicity detection across 6 low-resource Indic languages. Curated the first large-scale Punjabi toxicity dataset (39k+ annotated instances). Fine-tuned mBERT to 80.29% accuracy on Punjabi.</div>
+      <div class="pub-authors">Himanshu Beniwal*, Reddybathuni Venkat*, <strong>Rohit Kumar</strong>*, Birudugadda Srivibhav*, Daksh Jain*, Pavan Doddi, Eshwar Dhande, Adithya Ananth, Kuldeep, Mayank Singh</div>
+      <div class="pub-desc">A platform for toxicity detection across 6 low-resource Indic languages, with speech-to-text and transliteration support. I curated the first large-scale Punjabi toxicity dataset (39k+ instances) and fine-tuned mBERT to 80.29% accuracy on a manually verified test set.</div>
       <div class="pub-links">
         <a class="pill main" href="https://aclanthology.org/2025.emnlp-demos.33/" target="_blank">Paper</a>
         <a class="pill" href="https://lingo.iitgn.ac.in/unityai-guard/#/" target="_blank">Website</a>
@@ -335,47 +341,89 @@
     </div>
 
     <div class="pub">
-      <div class="pub-venue">Under Review · ESWA 2026</div>
-      <div class="pub-title">CricStrategist: Risk-Calibrated Tactical Ranking for Cricket Decision Support</div>
-      <div class="pub-authors">et al., <strong>Rohit Kumar</strong>, et al.</div>
-      <div class="pub-desc">Uncertainty-aware retrieval system for cricket analytics using conformal risk control. Player profiling over 3,947 players. 92% empirical coverage, outperforming all baselines.</div>
-      <div class="pub-links">
-        <a class="pill" href="#" target="_blank">Preprint</a>
-      </div>
+      <div class="pub-venue">COPEN 14</div>
+      <div class="pub-title">Physics-Informed Machine Learning and Conformal Prediction for Friction Stir Weld Tensile Strength: A Cross-Source Benchmark</div>
+      <div class="pub-authors"><strong>Rohit Kumar</strong>, Subhrajyoti Saroj, Priyabrata Sahoo</div>
+      <div class="pub-desc">Models that look strong under random k-fold CV on pooled literature data fall apart when tested on an unseen source. We show why, and pair physics-informed ML with conformal prediction ranges.</div>
     </div>
 
     <div class="pub">
-      <div class="pub-venue">Preprint</div>
-      <div class="pub-title">FRAME-RAR: Frequency-Enhanced Motion History with Retrieval-Augmented Recognition for Real-Time Video Understanding</div>
-      <div class="pub-authors"><strong>Rohit Kumar</strong></div>
-      <div class="pub-desc">Dual-stream video action recognition pipeline. 232 FPS, 78.75% top-1 accuracy on UCF-101.</div>
-      <div class="pub-links">
-        <a class="pill" href="#" target="_blank">Preprint</a>
-      </div>
+      <div class="pub-venue">Under Review &middot; ACL Rolling Review (NAACL 2027)</div>
+      <div class="pub-title">Remembering What Hinglish Users Reject: A Multi-Session Benchmark for Constraint-Retentive Conversational Recommendation</div>
+      <div class="pub-authors"><strong>Rohit Kumar</strong>, Subham Raj, Sriparna Saha</div>
+      <div class="pub-desc">A benchmark that checks whether recommender assistants remember what Hinglish-speaking users ruled out in earlier sessions, with labels verified by bilingual annotators.</div>
     </div>
 
+    <div class="pub">
+      <div class="pub-venue">Under Review &middot; ACL Rolling Review (NAACL 2027)</div>
+      <div class="pub-title">Beyond Surface Empathy: Do Modern LLMs Overcome the Specific Failures of Specialized Empathetic Dialogue Systems?</div>
+      <div class="pub-authors">Tulika Sharma, <strong>Rohit Kumar</strong></div>
+      <div class="pub-desc">Tests whether open LLMs (Llama-3.3-70B, Qwen3-32B, GPT-OSS-120B) fix the known failures of older empathetic dialogue systems on EmpatheticDialogues, or just sound empathetic on the surface.</div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-venue">Under Review &middot; ACM Computing Surveys</div>
+      <div class="pub-title">Speaking Indian Languages, Missing Indian Culture: A Taxonomy of LLM Cultural Competence Gaps</div>
+      <div class="pub-authors"><strong>Rohit Kumar</strong>, Manasvi Mogale, Deeksha Varshney</div>
+      <div class="pub-desc">A survey and taxonomy of where LLMs that handle Indian languages still miss Indian cultural context.</div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-venue">Under Review &middot; Expert Systems with Applications</div>
+      <div class="pub-title">CricStrategist: Risk-Calibrated Tactical Ranking for Cricket Decision Support</div>
+      <div class="pub-authors">Nitish Kumar, Khyaati Srivastava, <strong>Rohit Kumar</strong>, Sriparna Saha</div>
+      <div class="pub-desc">Uncertainty-aware tactical ranking for cricket using conformal risk control, built on FieldSight (3,046 matches, 687,335 deliveries). Reaches 92% empirical coverage with the lowest violation severity among calibration baselines.</div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-venue">Under Review &middot; ACM TKDD</div>
+      <div class="pub-title">Routing Under Pricing Reversal: A Benchmark of Cost-Aware LLM Selection</div>
+      <div class="pub-authors">Subhendu Khatuya, <strong>Rohit Kumar</strong></div>
+      <div class="pub-desc">A benchmark for choosing which LLM to send a query to when a cheaper listed price does not mean a cheaper actual cost.</div>
+    </div>
+
+    <div class="pub-note">* equal contribution</div>
   </div>
 </section>
 
 <section id="experience">
   <div class="container">
     <div class="sec-label">Experience</div>
+    <div class="sub-label">Research</div>
+
+    <div class="exp-item">
+      <div class="exp-date">Sep 2026<br>Present</div>
+      <div>
+        <div class="exp-role">Research Assistant</div>
+        <div class="exp-org">University of Sheffield &nbsp;&middot;&nbsp; Supervisor: <a href="https://ns-moosavi.github.io/" target="_blank">Dr. Nafise Sadat Moosavi</a> <span class="exp-place">&nbsp;&middot;&nbsp; Remote</span></div>
+        <div class="exp-desc">Building an NLP framework that checks whether a Cochrane systematic review's conclusion is supported by its primary-study evidence, and whether declared conflicts of interest predict weaker support. 136 reviews and 936 primary studies across alcohol, cancer, nutrition and tobacco.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">May 2026<br>Jul 2026</div>
+      <div>
+        <div class="exp-role">Research Intern</div>
+        <div class="exp-org">Emory University &nbsp;&middot;&nbsp; Supervisor: <a href="https://winshipcancer.emory.edu/profiles/sarker-abeed.php" target="_blank">Dr. Abeed Sarker</a> <span class="exp-place">&nbsp;&middot;&nbsp; Remote</span></div>
+        <div class="exp-desc">Extended a CDC-collaborative NLP study of suicide methods discussed on an online forum to 2.15M posts. Grew the method taxonomy from 14 to 19 categories with Word2Vec and BERTopic, and ran interrupted time series, Granger causality and substitution analyses.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Feb 2026<br>May 2026</div>
+      <div>
+        <div class="exp-role">Research Intern</div>
+        <div class="exp-org">ABV-IIITM Gwalior &nbsp;&middot;&nbsp; Supervisor: <a href="https://www.iiitm.ac.in/staff/faculty/dr-roshni-chakraborty" target="_blank">Dr. Roshni Chakraborty</a> <span class="exp-place">&nbsp;&middot;&nbsp; Remote</span></div>
+        <div class="exp-desc">Built a Hindi political news dataset for media bias: scraped articles from four publishers and annotated them for selection and omission bias. Benchmarked seven Hindi and multilingual encoders (MuRIL, IndicBERT v2, LaBSE, XLM-R and others) with 5-fold stratified cross-validation.</div>
+      </div>
+    </div>
 
     <div class="exp-item">
       <div class="exp-date">Nov 2025<br>Jan 2026</div>
       <div>
         <div class="exp-role">Research Intern</div>
-        <div class="exp-org">IIT Patna &nbsp;·&nbsp; Supervisor: Dr. Sriparna Saha</div>
-        <div class="exp-desc">Contributed to FieldSight, a cricket dataset of 3,046 annotated ball-by-ball instances. Implemented conformal risk control for uncertainty-aware tactical ranking. Built the player profiling module across 100 player profiles.</div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="exp-date">Jun 2025<br>Dec 2025</div>
-      <div>
-        <div class="exp-role">Applied ML Lead</div>
-        <div class="exp-org">noCnX Technologies</div>
-        <div class="exp-desc">Built MoldGPT, a multimodal RAG system combining text and diagram retrieval with Whisper STT for multilingual voice queries on factory floors. PostgreSQL and Redis for session management, automated document ingestion with department-based access control.</div>
+        <div class="exp-org">IIT Patna &nbsp;&middot;&nbsp; Supervisor: <a href="https://www.iitp.ac.in/~sriparna/" target="_blank">Dr. Sriparna Saha</a> <span class="exp-place">&nbsp;&middot;&nbsp; Remote</span></div>
+        <div class="exp-desc">Helped build FieldSight, a cricket dataset of 3,046 matches and 687,335 ball-level deliveries. Implemented conformal risk control for uncertainty-aware tactical ranking and built the player profiling module (200 coaching profiles across 87 tactical dimensions).</div>
       </div>
     </div>
 
@@ -383,8 +431,8 @@
       <div class="exp-date">Jun 2025<br>Nov 2025</div>
       <div>
         <div class="exp-role">Research Intern</div>
-        <div class="exp-org">University of Waterloo &nbsp;·&nbsp; Supervisor: Dr. Sirisha Rambhatla</div>
-        <div class="exp-desc">Multimodal AI for 3-month mRS prediction in acute ischemic stroke patients. Fusion of imaging biomarkers and clinical risk factors. Evaluated ensemble ML models for stroke volume and clot burden assessment.</div>
+        <div class="exp-org">University of Waterloo &nbsp;&middot;&nbsp; Supervisor: <a href="https://sirisharambhatla.com/" target="_blank">Dr. Sirisha Rambhatla</a> <span class="exp-place">&nbsp;&middot;&nbsp; Remote</span></div>
+        <div class="exp-desc">Multimodal prediction of 3-month mRS outcomes in acute ischemic stroke patients. Compared fusion strategies for imaging biomarkers and clinical risk factors, and evaluated ensemble models for stroke volume and clot burden assessment.</div>
       </div>
     </div>
 
@@ -392,8 +440,28 @@
       <div class="exp-date">Feb 2025<br>Apr 2025</div>
       <div>
         <div class="exp-role">Research Intern</div>
-        <div class="exp-org">IIT Gandhinagar &nbsp;·&nbsp; Supervisor: Dr. Mayank Singh</div>
-        <div class="exp-desc">Built the multilingual React + FastAPI platform and curated the first large-scale Punjabi toxicity dataset. This work became UNITYAI-GUARD, accepted at EMNLP 2025.</div>
+        <div class="exp-org">IIT Gandhinagar &nbsp;&middot;&nbsp; Supervisor: <a href="https://mayank4490.github.io/" target="_blank">Dr. Mayank Singh</a> <span class="exp-place">&nbsp;&middot;&nbsp; Remote</span></div>
+        <div class="exp-desc">Built the multilingual React + FastAPI platform and curated the first large-scale Punjabi toxicity dataset. This work became UNITYAI-GUARD at EMNLP 2025.</div>
+      </div>
+    </div>
+
+    <div class="sub-label">Industry</div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jun 2025<br>Present</div>
+      <div>
+        <div class="exp-role">AI Intern</div>
+        <div class="exp-org">Keva Fragrances <span class="exp-place">&nbsp;&middot;&nbsp; Mumbai, Remote</span></div>
+        <div class="exp-desc">Developing a retrieval-augmented pipeline for natural-language querying of enterprise SAP ERP data using MCP, LangGraph, MongoDB and ChromaDB.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jun 2025<br>Dec 2025</div>
+      <div>
+        <div class="exp-role">Applied ML Lead</div>
+        <div class="exp-org">noCnX Technologies <span class="exp-place">&nbsp;&middot;&nbsp; Maastricht, Netherlands, Remote</span></div>
+        <div class="exp-desc">Built MoldGPT, a multimodal RAG system combining text and diagram retrieval with Whisper STT for multilingual voice queries on factory floors. PostgreSQL and Redis for session management, automated document ingestion with department-based access control.</div>
       </div>
     </div>
 
@@ -404,6 +472,16 @@
   <div class="container">
     <div class="sec-label">Projects</div>
     <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-title">HindiAudioTox</div>
+        <div class="proj-desc">Hindi speech toxicity dataset and model. Collected and segmented 82k+ naturalistic Hindi speech clips and annotated them for toxicity. Trained a multimodal fusion model combining IndicWav2Vec speech representations with eGeMAPS paralinguistic features (pitch, energy, speaking rate).</div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-title">FRAME-RAR</div>
+        <div class="proj-desc">Real-time video action recognition with frequency-enhanced motion history images and retrieval-augmented recognition. 78.75% top-1 accuracy on UCF-101 at 232 FPS (4.31 ms latency).</div>
+      </div>
 
       <div class="proj-card">
         <div class="proj-title">LearnWise</div>
